@@ -5,17 +5,20 @@ export default function TextForm(props) {
   const handleUcClick = () => {
     // console.log("UpperCase was Clicked");
     setText(text.toUpperCase());
+    props.showAlert("Converted to Upper Case", "success");
   };
 
   // To Lower Case
   const handleLcClick = () => {
     // console.log("LowerCase was Clicked");
     setText(text.toLowerCase());
+    props.showAlert("Converted to Lower Case", "success");
   };
 
   const handleClrClick = () => {
     // console.log("Clear was Clicked");
     setText("");
+    props.showAlert("All Text Cleared", "success");
   };
 
   const handleOnChange = (event) => {
@@ -27,7 +30,10 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
 
   return (
-    <div className="container my-3">
+    <div
+      className="container my-3"
+      style={{ color: props.mode === "dark" ? "#fff" : "#000" }}
+    >
       <h1>{props.heading}</h1>
       <div className="mb-3">
         <textarea
@@ -37,6 +43,10 @@ export default function TextForm(props) {
           id="myBox"
           rows="8"
           placeholder="Enter Your Text Here..."
+          style={{
+            backgroundColor: props.mode === "dark" ? "#292a2d" : "#fff",
+            color: props.mode === "dark" ? "#fff" : "#000",
+          }}
         ></textarea>
       </div>
       <span>
@@ -60,6 +70,10 @@ export default function TextForm(props) {
           rows="5"
           value={text}
           disabled
+          style={{
+            backgroundColor: props.mode === "dark" ? "#292a2d" : "#fff",
+            color: props.mode === "dark" ? "#fff" : "#000",
+          }}
         ></textarea>
       </div>
     </div>
