@@ -15,6 +15,13 @@ export default function TextForm(props) {
     props.showAlert("Converted to Lower Case", "success");
   };
 
+  // To Copy Text
+  const handleCopyClick = () => {
+    // console.log("Copy was Clicked");
+    navigator.clipboard.writeText(text);
+    props.showAlert("Text Copied to Clipboard", "success");
+  };
+
   const handleClrClick = () => {
     // console.log("Clear was Clicked");
     setText("");
@@ -50,15 +57,23 @@ export default function TextForm(props) {
         ></textarea>
       </div>
       <span>
-        {text.split(" ").length} Words, {text.length} Characters
+        {
+          text.split(/\s+/).filter((element) => {
+            return element.length !== 0;
+          }).length
+        }{" "}
+        Words, {text.length} Characters
       </span>
-      <button className="btn btn-success mx-2" onClick={handleUcClick}>
+      <button className="btn btn-success mx-2" onClick={handleUcClick} disabled={text.length === 0}>
         Upper Case
       </button>
-      <button className="btn btn-success mx-2" onClick={handleLcClick}>
+      <button className="btn btn-success mx-2" onClick={handleLcClick} disabled={text.length === 0}>
         Lower Case
       </button>
-      <button className="btn btn-danger mx-2" onClick={handleClrClick}>
+      <button className="btn btn-success mx-2" onClick={handleCopyClick} disabled={text.length === 0}>
+        Copy
+      </button>
+      <button className="btn btn-danger mx-2" onClick={handleClrClick} disabled={text.length === 0}>
         Clear
       </button>
       <div className="container my-3">
