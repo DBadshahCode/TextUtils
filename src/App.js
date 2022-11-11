@@ -32,9 +32,9 @@ function App() {
 
   return (
     <>
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="Textify" mode={mode} toggleMode={toggleMode} />
       <TextForm
-        heading="Enter Your Text Below to Analyze"
+        heading="Enter Your Text Below to Analyze or Beautify"
         mode={mode}
         showAlert={showAlert}
       />
