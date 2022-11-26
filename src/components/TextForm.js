@@ -41,18 +41,19 @@ export default function TextForm(props) {
       className="container my-3"
       style={{ color: props.mode === "dark" ? "#fff" : "#000" }}
     >
-      <h1>{props.heading}</h1>
+      <h1 className="mb-3">{props.heading}</h1>
       <div className="mb-3">
         <textarea
           className="form-control"
           value={text}
           onChange={handleOnChange}
           id="myBox"
-          rows="8"
+          rows="15"
           placeholder="Enter Your Text Here..."
           style={{
             backgroundColor: props.mode === "dark" ? "#292a2d" : "#fff",
             color: props.mode === "dark" ? "#fff" : "#000",
+            resize: "none"
           }}
         ></textarea>
       </div>
@@ -64,19 +65,19 @@ export default function TextForm(props) {
         }{" "}
         Words, {text.length} Characters
       </span>
-      <button className="btn btn-success mx-2" onClick={handleUcClick} disabled={text.length === 0}>
+      <button className="btn btn-sm btn-outline-primary mx-2" onClick={handleUcClick} disabled={text.length === 0}>
         Upper Case
       </button>
-      <button className="btn btn-success mx-2" onClick={handleLcClick} disabled={text.length === 0}>
+      <button className="btn btn-sm btn-outline-primary mx-2" onClick={handleLcClick} disabled={text.length === 0}>
         Lower Case
       </button>
-      <button className="btn btn-success mx-2" onClick={handleCopyClick} disabled={text.length === 0}>
+      <button className="btn btn-sm btn-outline-primary mx-2" onClick={handleCopyClick} disabled={text.length === 0}>
         Copy
       </button>
-      <button className="btn btn-danger mx-2" onClick={handleClrClick} disabled={text.length === 0}>
+      <button className="btn btn-sm btn-outline-primary mx-2" onClick={handleClrClick} disabled={text.length === 0}>
         Clear
       </button>
-      <div className="container my-3">
+      {/* <div className="container my-3">
         <h4>Preview</h4>
         <textarea
           className="form-control"
@@ -90,7 +91,7 @@ export default function TextForm(props) {
             color: props.mode === "dark" ? "#fff" : "#000",
           }}
         ></textarea>
-      </div>
+      </div> */}
     </div>
   );
 }
