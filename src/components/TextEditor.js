@@ -116,8 +116,15 @@ export default function TextEditor({ heading }) {
       setText(history[historyIndex + 1]);
     }
   };
-
-  const readingTime = Math.ceil(text.split(" ").length / 200);
+  const calculateReadingTime = (text) => {
+    const words = text.trim().split(/\s+/).filter(Boolean); // Split by whitespace and filter out empty strings
+    const wordCount = words.length;
+    const readingSpeed = 200; // Average reading speed in words per minute
+    return Math.ceil(wordCount / readingSpeed); // Return estimated reading time in minutes
+  };
+  
+  // Use the function in your render method
+  const readingTime = calculateReadingTime(text);  
   const sentenceCount = text.split(/[.!?]+/).filter(Boolean).length;
   const paragraphCount = text.split(/\n+/).filter(Boolean).length;
 
