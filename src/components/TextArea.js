@@ -8,7 +8,7 @@ const TextArea = ({ text, handleTextChange, fontSize, textColor, mode }) => {
       onChange={handleTextChange}
       id="myBox"
       rows="15"
-      placeholder="Type Below to Transform Your Text!"
+      placeholder="Start typing to transform your text..."
       style={{
         fontSize: `${fontSize}px`,
         color: textColor,
