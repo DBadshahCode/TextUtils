@@ -6,7 +6,7 @@ const TextTransformButtons = ({ text, transformText }) => {
       {['upper', 'lower', 'title', 'sentence', 'reverse'].map((type) => (
         <button
           key={type}
-          className="btn btn-outline-primary"
+          className="btn btn-light"
           onClick={() => transformText(type)}
           disabled={text.length === 0}
         >

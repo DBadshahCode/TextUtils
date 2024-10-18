@@ -37,7 +37,7 @@ const FindAndReplace = ({
         style={{ width: '30%' }} // Adjust the width as needed
       />
       <button
-        className="btn btn-outline-primary mx-1"
+        className="btn btn-light mx-1"
         onClick={handleReplaceText}
         disabled={text.length === 0 || !replaceText}
       >
