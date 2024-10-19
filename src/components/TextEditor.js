@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
+import React, { useState } from "react";
 import TextArea from './TextArea';
 import TextStatistics from './TextStatistics';
 import TextTransformButtons from './TextTransformButtons';
@@ -19,8 +18,6 @@ export default function TextEditor({ heading }) {
   const [maxLength, setMaxLength] = useState(500);
   const [history, setHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-
-  const { mode } = useContext(ThemeContext);
 
   const updateText = (newText) => {
     setText(newText);
@@ -126,16 +123,49 @@ export default function TextEditor({ heading }) {
   };
 
   return (
-    <div className="container my-3" style={{ color: mode === "dark" ? "#fff" : "#000" }}>
-      <h1 className="mb-3">{heading}</h1>
-      <TextArea text={text} handleTextChange={handleTextChange} fontSize={fontSize} textColor={textColor} mode={mode} />
+    <div className={`container my-3`}>
+      <h3 className="mb-3">{heading}</h3>
+      <TextArea 
+        text={text} 
+        handleTextChange={handleTextChange} 
+        fontSize={fontSize} 
+        textColor={textColor} 
+      />
       <TextStatistics text={text} />
       <TextTransformButtons text={text} transformText={transformText} />
-      <ClipboardAndClear text={text} copyToClipboard={copyToClipboard} clearText={clearText} clearFormatting={clearFormatting} handleRemoveExtraSpaces={handleRemoveExtraSpaces} />
-      <FindAndReplace findText={findText} replaceText={replaceText} withText={withText} setFindText={setFindText} setReplaceText={setReplaceText} setWithText={setWithText} handleReplaceText={handleReplaceText} text={text} />
-      <UndoRedoDownload handleUndo={handleUndo} handleRedo={handleRedo} downloadText={downloadText} historyIndex={historyIndex} history={history} />
-      <FontSizeAndColor fontSize={fontSize} setFontSize={setFontSize} textColor={textColor} setTextColor={setTextColor} maxLength={maxLength} setMaxLength={setMaxLength} mode={mode} />
-      <Preview renderedText={renderHighlightedText()} mode={mode} />
+      <ClipboardAndClear 
+        text={text} 
+        copyToClipboard={copyToClipboard} 
+        clearText={clearText} 
+        clearFormatting={clearFormatting} 
+        handleRemoveExtraSpaces={handleRemoveExtraSpaces} 
+      />
+      <FindAndReplace 
+        findText={findText} 
+        replaceText={replaceText} 
+        withText={withText} 
+        setFindText={setFindText} 
+        setReplaceText={setReplaceText} 
+        setWithText={setWithText} 
+        handleReplaceText={handleReplaceText} 
+        text={text} 
+      />
+      <UndoRedoDownload 
+        handleUndo={handleUndo} 
+        handleRedo={handleRedo} 
+        downloadText={downloadText} 
+        historyIndex={historyIndex} 
+        history={history} 
+      />
+      <FontSizeAndColor 
+        fontSize={fontSize} 
+        setFontSize={setFontSize} 
+        textColor={textColor} 
+        setTextColor={setTextColor} 
+        maxLength={maxLength} 
+        setMaxLength={setMaxLength} 
+      />
+      <Preview renderedText={renderHighlightedText()} />
     </div>
   );
 }

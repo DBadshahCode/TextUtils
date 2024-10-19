@@ -1,30 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext } from '../contexts/ThemeContext';
 
 const Navbar = ({ title }) => {
-  const { mode, toggleMode } = useContext(ThemeContext);
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
-      <div className="container-fluid">
+    <nav className={`navbar navbar-expand-lg navbar-dark bg-dark`}>
+      <div className="container-fluid d-flex justify-content-between align-items-center">
         <a className="navbar-brand" href="/">
           {title}
         </a>
-        <div className="form-check form-switch">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="mode"
-            onClick={toggleMode}
-          />
-          <label
-            className={`form-check-label text-${mode === 'light' ? 'dark' : 'light'}`}
-            htmlFor="mode"
-          >
-            {mode.charAt(0).toUpperCase() + mode.slice(1)} Mode Enabled
-          </label>
-        </div>
       </div>
     </nav>
   );

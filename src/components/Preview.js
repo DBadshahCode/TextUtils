@@ -1,17 +1,16 @@
 import React from 'react';
 
-const Preview = ({ renderedText, mode }) => {
+const Preview = ({ renderedText }) => {
+
   return (
     <div className="container my-3">
-      <h4>Preview</h4>
+      <h4 className={`text-dark`}>Preview</h4>
       <div
-        className="form-control"
+        className={`form-control bg-light text-dark`}
         style={{
-          backgroundColor: mode === "dark" ? "#292a2d" : "#fff",
-          color: mode === "dark" ? "#fff" : "#000",
-          minHeight: "100px",
-          overflowY: "auto",
-          padding: "10px",
+          minHeight: '100px',
+          overflowY: 'auto',
+          padding: '10px',
         }}
       >
         {renderedText}

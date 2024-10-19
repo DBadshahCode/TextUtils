@@ -1,18 +1,18 @@
 import React from 'react';
 
-const TextArea = ({ text, handleTextChange, fontSize, textColor, mode }) => {
+const TextArea = ({ text, handleTextChange, fontSize, textColor }) => {
+
   return (
     <textarea
-      className="form-control"
+      className={`form-control bg-light`}
       value={text}
       onChange={handleTextChange}
       id="myBox"
-      rows="15"
+      rows=""
       placeholder="Start typing to transform your text..."
       style={{
         fontSize: `${fontSize}px`,
         color: textColor,
-        backgroundColor: mode === "dark" ? "#292a2d" : "#fff",
         height: "300px",
         resize: "none",
       }}
