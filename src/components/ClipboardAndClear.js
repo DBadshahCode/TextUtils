@@ -24,14 +24,14 @@ const ClipboardAndClear = ({ text, copyToClipboard, clearText, clearFormatting, 
         onClick={clearFormatting}
         disabled={text.length === 0}
       >
-        <i className="fa fa-eraser" title="Clear Formatting" />
+        <i className="fa fa-remove-format" title="Clear Formatting" />
       </button>
       <button
         className={`btn btn-light`}
         onClick={handleRemoveExtraSpaces}
         disabled={text.length === 0}
       >
-        Remove Extra Spaces
+        <i className="fa fa-eraser" title="Remove Etra Spaces" />
       </button>
     </div>
   );

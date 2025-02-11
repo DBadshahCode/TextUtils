@@ -11,13 +11,13 @@ const UndoRedoDownload = ({ handleUndo, handleRedo, downloadText, historyIndex, 
       >
         <i className="fa fa-undo" title="Undo" />
       </button>
-      {/* <button
+      <button
         className={`btn btn-light`}
         onClick={handleRedo}
-        disabled={history.length === 0 || historyIndex >= history.length - 1}
+        disabled={historyIndex >= history.length - 1}
       >
-        Redo
-      </button> */}
+        <i className="fa fa-redo" title="Redo" />
+      </button>
       <button
         className={`btn btn-light`}
         onClick={downloadText}
