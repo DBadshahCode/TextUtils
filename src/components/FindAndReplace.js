@@ -19,7 +19,7 @@ const FindAndReplace = ({
         value={findText}
         onChange={(e) => setFindText(e.target.value)}
         className="form-control mx-1"
-        style={{ width: '10%' }}
+        style={{ width: '25%' }}
       />
       <input
         type="text"
@@ -27,7 +27,7 @@ const FindAndReplace = ({
         value={replaceText}
         onChange={(e) => setReplaceText(e.target.value)}
         className="form-control mx-1"
-        style={{ width: '10%' }}
+        style={{ width: '25%' }}
       />
       <input
         type="text"
@@ -35,7 +35,7 @@ const FindAndReplace = ({
         value={withText}
         onChange={(e) => setWithText(e.target.value)}
         className="form-control mx-1"
-        style={{ width: '10%' }}
+        style={{ width: '25%' }}
       />
       <button
         className={`btn btn-light mx-1`}
