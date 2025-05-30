@@ -10,10 +10,11 @@ const TextStatistics = ({ text }) => {
   return (
     <div className="my-2">
       <p>
-        <strong>Words:</strong> {words} <br />
-        <strong>Characters:</strong> {characters} <br />
-        <strong>Sentences:</strong> {sentenceCount} <br />
-        <strong>Paragraphs:</strong> {paragraphCount} <br />
+        <strong>Words:</strong> {words} &nbsp;|&nbsp;
+        <strong>Characters:</strong> {characters} &nbsp;|&nbsp;
+        <strong>Sentences:</strong> {sentenceCount} &nbsp;|&nbsp;
+        <strong>Paragraphs:</strong> {paragraphCount} &nbsp;|&nbsp;
+        <strong>Average Sentence Length:</strong> {words / sentenceCount || 0} words &nbsp;|&nbsp;
         <strong>Estimated Reading Time:</strong> {readingTime} min
       </p>
     </div>

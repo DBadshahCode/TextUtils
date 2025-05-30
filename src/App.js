@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import TextEditor from './components/TextEditor';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 // import RichTextEditor from './components/RichTextEditor';
@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 function App() {
   return (
     <div>
-      <Navbar title="Textify" />
+      {/* <Navbar title="Textify" /> */}
       {/* <RichTextEditor heading="Unleash Your Creativity: Input Your Text!"  /> */}
       <TextEditor heading="Unleash Your Creativity: Input Your Text!" />
     </div>
