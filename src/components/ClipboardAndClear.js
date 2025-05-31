@@ -10,7 +10,7 @@ const ClipboardAndClear = ({ text, copyToClipboard, clearText, clearFormatting, 
         aria-label="Copy Text"
         title="Copy Text"
       >
-        <i className="fa fa-clipboard" />
+        <i className="fas fa-copy" />
       </button>
       <button
         className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
@@ -19,7 +19,7 @@ const ClipboardAndClear = ({ text, copyToClipboard, clearText, clearFormatting, 
         aria-label="Clear Text"
         title="Clear Text"
       >
-        <i className="fa fa-trash" />
+        <i className="fas fa-trash" />
       </button>
       <button
         className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
@@ -28,7 +28,7 @@ const ClipboardAndClear = ({ text, copyToClipboard, clearText, clearFormatting, 
         aria-label="Clear Formatting"
         title="Clear Formatting"
       >
-        <i className="fa fa-ban" />
+        <i className="fas fa-eraser" />
       </button>
       <button
         className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
@@ -37,7 +37,7 @@ const ClipboardAndClear = ({ text, copyToClipboard, clearText, clearFormatting, 
         aria-label="Remove Extra Spaces"
         title="Remove Extra Spaces"
       >
-        <i className="fa fa-eraser" />
+        <i className="fas fa-compress-arrows-alt" />
       </button>
     </div>
   );

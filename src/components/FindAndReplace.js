@@ -44,7 +44,7 @@ const FindAndReplace = ({
         onClick={handleReplaceText}
         disabled={isDisabled}
       >
-        <i className="fa fa-sync-alt" title="Replace Text" />
+        <i className="fas fa-sync-alt" title="Replace Text" />
       </button>
     </div>
   );

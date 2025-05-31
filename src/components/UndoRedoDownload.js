@@ -8,7 +8,7 @@ const UndoRedoDownload = ({ handleUndo, handleRedo, downloadText, historyIndex, 
         className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
         aria-label="Undo"
       >
-        <i className="fa fa-undo"></i>
+        <i className="fas fa-undo"></i>
       </button>
 
       <button
@@ -18,7 +18,7 @@ const UndoRedoDownload = ({ handleUndo, handleRedo, downloadText, historyIndex, 
         className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
         aria-label="Redo"
       >
-        <i className="fa fa-redo"></i>
+        <i className="fas fa-redo"></i>
       </button>
 
       <button
@@ -28,7 +28,7 @@ const UndoRedoDownload = ({ handleUndo, handleRedo, downloadText, historyIndex, 
         className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition"
         aria-label="Download File"
       >
-        <i className="fa fa-download"></i>
+        <i className="fas fa-download"></i>
       </button>
     </div>
   );

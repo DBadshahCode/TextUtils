@@ -2,10 +2,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css'; // icons
 
 const TextTransformButtons = ({ text, transformText }) => {
   const buttonConfig = {
-    upper: { icon: "fa-arrow-up", title: "Convert to Upper Case" },
-    lower: { icon: "fa-arrow-down", title: "Convert to Lower Case" },
-    title: { icon: "fa-text-height", title: "Convert to Title Case" },
-    sentence: { icon: "fa-font", title: "Convert to Sentence Case" },
+    upper: { icon: "fa-text-height", title: "Convert to Upper Case" },
+    lower: { icon: "fa-text-height", title: "Convert to Lower Case" },
+    title: { icon: "fa-heading", title: "Convert to Title Case" },
+    sentence: { icon: "fa-paragraph", title: "Convert to Sentence Case" },
     reverse: { icon: "fa-exchange-alt", title: "Reverse Text" },
   };
 
