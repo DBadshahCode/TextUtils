@@ -123,8 +123,8 @@ export default function TextEditor({ heading }) {
   };
 
   return (
-    <div className={`container my-3`}>
-      <h3 className="mb-3 text-center">{heading}</h3>
+    <div className="max-w-5xl mx-auto my-6 px-4">
+      <h3 className="text-center mb-4 text-2xl font-semibold text-gray-800 dark:text-gray-100">{heading}</h3>
       <TextArea 
         text={text} 
         handleTextChange={handleTextChange} 

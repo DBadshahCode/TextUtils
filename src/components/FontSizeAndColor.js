@@ -1,24 +1,19 @@
 import React from 'react';
-import './FontSizeAndColor.css';
 
 const FontSizeAndColor = ({ fontSize, setFontSize, textColor, setTextColor, maxLength, setMaxLength }) => {
   return (
-    <div className="my-2">
-      <label htmlFor="maxLength" className="text-dark">
-        Max Characters:
-      </label>
+    <div className="my-2 flex flex-wrap items-center gap-2 text-gray-800 dark:text-gray-100">
+      <label htmlFor="maxLength">Max Characters:</label>
       <input
         type="number"
         id="maxLength"
         value={maxLength}
         onChange={(e) => setMaxLength(e.target.value)}
         min="1"
-        className="mx-2"
+        className="w-20 px-2 py-1 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
       />
 
-      <label htmlFor="fontSize" className="text-dark">
-        Font Size:
-      </label>
+      <label htmlFor="fontSize">Font Size:</label>
       <input
         type="range"
         id="fontSize"
@@ -26,22 +21,18 @@ const FontSizeAndColor = ({ fontSize, setFontSize, textColor, setTextColor, maxL
         max="50"
         value={fontSize}
         onChange={(e) => setFontSize(e.target.value)}
-        className="mx-2"
+        className="accent-blue-500"
       />
-      <span className="text-dark">{fontSize}px</span>
+      <span>{fontSize}px</span>
 
-      <label htmlFor="textColor" className="mx-2 text-dark">
-        Text Color:
-      </label>
-      <div className="color-picker-container">
-        <input
-          type="color"
-          id="textColor"
-          value={textColor}
-          onChange={(e) => setTextColor(e.target.value)}
-          className="mx-2 color-picker"
-        />
-      </div>
+      <label htmlFor="textColor" className="ml-2">Text Color:</label>
+      <input
+        type="color"
+        id="textColor"
+        value={textColor}
+        onChange={(e) => setTextColor(e.target.value)}
+        className="w-6 h-6 rounded-full border-none cursor-pointer shadow-md p-0"
+      />
     </div>
   );
 };

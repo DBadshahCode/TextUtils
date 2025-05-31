@@ -5,18 +5,17 @@ const TextStatistics = ({ text }) => {
   const characters = text.length;
   const sentenceCount = text.split(/[.!?]+/).filter(Boolean).length;
   const paragraphCount = text.split(/\n+/).filter(Boolean).length;
-  const readingTime = Math.ceil(words / 200); // Average reading speed: 200 words per minute
+  const readingTime = Math.ceil(words / 200); // Average reading speed: 200 wpm
 
   return (
-    <div className="my-2">
-      <p>
-        <strong>Words:</strong> {words} &nbsp;|&nbsp;
-        <strong>Characters:</strong> {characters} &nbsp;|&nbsp;
-        <strong>Sentences:</strong> {sentenceCount} &nbsp;|&nbsp;
-        <strong>Paragraphs:</strong> {paragraphCount} &nbsp;|&nbsp;
-        <strong>Average Sentence Length:</strong> {words / sentenceCount || 0} words &nbsp;|&nbsp;
-        <strong>Estimated Reading Time:</strong> {readingTime} min
-      </p>
+    <div className="my-4">
+      <div className="text-sm text-gray-800 dark:text-gray-200 space-y-1">
+        <p><strong>Words:</strong> {words}</p>
+        <p><strong>Characters:</strong> {characters}</p>
+        <p><strong>Sentences:</strong> {sentenceCount}</p>
+        <p><strong>Paragraphs:</strong> {paragraphCount}</p>
+        <p><strong>Estimated Reading Time:</strong> {readingTime} min</p>
+      </div>
     </div>
   );
 };
