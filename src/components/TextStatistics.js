@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TextStatistics = ({ text }) => {
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   const characters = text.length;

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Preview = ({ renderedText }) => {
   return (
     <div className="my-3 px-4">

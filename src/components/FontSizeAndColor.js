@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FontSizeAndColor = ({ fontSize, setFontSize, textColor, setTextColor, maxLength, setMaxLength }) => {
   return (
     <div className="my-2 flex flex-wrap items-center gap-2 text-gray-800 dark:text-gray-100">

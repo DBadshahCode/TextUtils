@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TextArea = ({ text, handleTextChange, fontSize, textColor }) => {
   return (
     <textarea

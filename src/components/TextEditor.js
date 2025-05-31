@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TextArea from './TextArea';
 import TextStatistics from './TextStatistics';
 import TextTransformButtons from './TextTransformButtons';

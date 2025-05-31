@@ -1,5 +1,3 @@
-import React from 'react';
-
 const UndoRedoDownload = ({ handleUndo, handleRedo, downloadText, historyIndex, history }) => {
   return (
     <div role="group" className="flex space-x-2 my-2 mx-2">

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ClipboardAndClear = ({ text, copyToClipboard, clearText, clearFormatting, handleRemoveExtraSpaces }) => {
   const isDisabled = text.length === 0;
 
