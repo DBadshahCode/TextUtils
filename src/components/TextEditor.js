@@ -123,7 +123,7 @@ export default function TextEditor({ heading }) {
   };
 
   return (
-    <div className="max-w-5xl mx-auto my-6 px-4">
+    <div className="max-w-7xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md">
       <h3 className="text-center mb-4 text-2xl font-semibold text-gray-800 dark:text-gray-100">{heading}</h3>
       <TextArea 
         text={text} 
