@@ -1,12 +1,12 @@
 import { useState } from "react";
-import TextArea from './TextArea';
-import TextStatistics from './TextStatistics';
-import TextTransformButtons from './TextTransformButtons';
-import ClipboardAndClear from './ClipboardAndClear';
-import FindAndReplace from './FindAndReplace';
-import UndoRedoDownload from './UndoRedoDownload';
-import FontSizeAndColor from './FontSizeAndColor';
-import Preview from './Preview';
+import TextArea from "./TextArea";
+import TextStatistics from "./TextStatistics";
+import TextTransformButtons from "./TextTransformButtons";
+import ClipboardAndClear from "./ClipboardAndClear";
+import FindAndReplace from "./FindAndReplace";
+import UndoRedoDownload from "./UndoRedoDownload";
+import FontSizeAndColor from "./FontSizeAndColor";
+import Preview from "./Preview";
 
 export default function TextEditor({ heading }) {
   const [text, setText] = useState("");
@@ -30,11 +30,8 @@ export default function TextEditor({ heading }) {
 
   const handleTextChange = (event) => {
     const newText = event.target.value;
-    if (newText.length <= maxLength) {
-      updateText(newText);
-    } else {
-      console.log("Character limit exceeded!");
-    }
+    if (newText.length <= maxLength) updateText(newText);
+    else console.log("Character limit exceeded!");
   };
 
   const handleReplaceText = () => {
@@ -51,7 +48,6 @@ export default function TextEditor({ heading }) {
 
   const renderHighlightedText = () => {
     if (!findText) return text;
-
     const regex = new RegExp(`(${findText})`, "gi");
     return text.split(regex).map((part, index) =>
       regex.test(part) ? <mark key={index}>{part}</mark> : part
@@ -71,7 +67,7 @@ export default function TextEditor({ heading }) {
         transformedText = text
           .toLowerCase()
           .split(" ")
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
           .join(" ");
         break;
       case "sentence":
@@ -86,14 +82,8 @@ export default function TextEditor({ heading }) {
     updateText(transformedText);
   };
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(text);
-  };
-
-  const clearText = () => {
-    updateText("");
-  };
-
+  const copyToClipboard = () => navigator.clipboard.writeText(text);
+  const clearText = () => updateText("");
   const clearFormatting = () => {
     updateText(text.replace(/<\/?[^>]+(>|$)/g, ""));
     setFontSize(16);
@@ -123,49 +113,63 @@ export default function TextEditor({ heading }) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md">
-      <h3 className="text-center mb-4 text-2xl font-semibold text-gray-800 dark:text-gray-100">{heading}</h3>
-      <TextArea 
-        text={text} 
-        handleTextChange={handleTextChange} 
-        fontSize={fontSize} 
-        textColor={textColor} 
-      />
-      <TextStatistics text={text} />
-      <TextTransformButtons text={text} transformText={transformText} />
-      <ClipboardAndClear 
-        text={text} 
-        copyToClipboard={copyToClipboard} 
-        clearText={clearText} 
-        clearFormatting={clearFormatting} 
-        handleRemoveExtraSpaces={handleRemoveExtraSpaces} 
-      />
-      <FindAndReplace 
-        findText={findText} 
-        replaceText={replaceText} 
-        withText={withText} 
-        setFindText={setFindText} 
-        setReplaceText={setReplaceText} 
-        setWithText={setWithText} 
-        handleReplaceText={handleReplaceText} 
-        text={text} 
-      />
-      <UndoRedoDownload 
-        handleUndo={handleUndo} 
-        handleRedo={handleRedo} 
-        downloadText={downloadText} 
-        historyIndex={historyIndex} 
-        history={history} 
-      />
-      <FontSizeAndColor 
-        fontSize={fontSize} 
-        setFontSize={setFontSize} 
-        textColor={textColor} 
-        setTextColor={setTextColor} 
-        maxLength={maxLength} 
-        setMaxLength={setMaxLength} 
-      />
-      <Preview renderedText={renderHighlightedText()} />
+    <div
+      className="max-w-6xl mx-auto my-8 p-6 rounded-3xl shadow-xl
+      bg-gradient-to-br from-white/80 to-gray-100/60 dark:from-gray-900/70 dark:to-gray-800/70
+      backdrop-blur-lg border border-gray-200/60 dark:border-gray-700/50 transition-all duration-500"
+    >
+      <h3 className="text-center mb-6 text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">
+        {heading}
+      </h3>
+
+      {/* Main editor section */}
+      <div className="flex flex-col gap-4">
+        <TextArea text={text} handleTextChange={handleTextChange} fontSize={fontSize} textColor={textColor} />
+
+        {/* Toolbar sections */}
+        <div className="flex flex-wrap justify-between gap-3 items-center">
+          <UndoRedoDownload
+            handleUndo={handleUndo}
+            handleRedo={handleRedo}
+            downloadText={downloadText}
+            historyIndex={historyIndex}
+            history={history}
+          />
+          <ClipboardAndClear
+            text={text}
+            copyToClipboard={copyToClipboard}
+            clearText={clearText}
+            clearFormatting={clearFormatting}
+            handleRemoveExtraSpaces={handleRemoveExtraSpaces}
+          />
+        </div>
+
+        <div className="flex flex-wrap justify-between gap-3 items-center">
+          <TextTransformButtons text={text} transformText={transformText} />
+          <FontSizeAndColor
+            fontSize={fontSize}
+            setFontSize={setFontSize}
+            textColor={textColor}
+            setTextColor={setTextColor}
+            maxLength={maxLength}
+            setMaxLength={setMaxLength}
+          />
+        </div>
+
+        <FindAndReplace
+          findText={findText}
+          replaceText={replaceText}
+          withText={withText}
+          setFindText={setFindText}
+          setReplaceText={setReplaceText}
+          setWithText={setWithText}
+          handleReplaceText={handleReplaceText}
+          text={text}
+        />
+
+        <TextStatistics text={text} />
+        <Preview renderedText={renderHighlightedText()} />
+      </div>
     </div>
   );
 }

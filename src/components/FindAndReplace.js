@@ -1,3 +1,5 @@
+import React from "react";
+
 const FindAndReplace = ({
   findText,
   replaceText,
@@ -10,41 +12,44 @@ const FindAndReplace = ({
 }) => {
   const isDisabled = text.length === 0 || !replaceText;
 
-  const inputClasses =
-    "w-1/4 mx-1 p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500";
+  const inputStyle =
+    "flex-1 min-w-[180px] px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200";
 
-  const buttonClasses =
-    "p-2 rounded-md border mx-1 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition disabled:opacity-50 disabled:cursor-not-allowed";
+  const buttonStyle =
+    "p-3 flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed";
 
   return (
-    <div className="my-2 flex flex-wrap items-end">
+    <div className="flex flex-wrap items-center justify-center gap-3 mt-4 px-2">
       <input
         type="text"
         placeholder="Find"
         value={findText}
         onChange={(e) => setFindText(e.target.value)}
-        className={inputClasses}
+        className={inputStyle}
       />
       <input
         type="text"
         placeholder="Replace"
         value={replaceText}
         onChange={(e) => setReplaceText(e.target.value)}
-        className={inputClasses}
+        className={inputStyle}
       />
       <input
         type="text"
         placeholder="With"
         value={withText}
         onChange={(e) => setWithText(e.target.value)}
-        className={inputClasses}
+        className={inputStyle}
       />
+
       <button
-        className={buttonClasses}
+        className={buttonStyle}
         onClick={handleReplaceText}
         disabled={isDisabled}
+        title="Replace Text"
+        aria-label="Replace Text"
       >
-        <i className="fas fa-sync-alt" title="Replace Text" />
+        <i className="fas fa-sync-alt text-lg" />
       </button>
     </div>
   );
