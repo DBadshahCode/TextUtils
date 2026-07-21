@@ -1,37 +1,30 @@
 import React from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const TextTransformButtons = ({ text, transformText }) => {
-  const buttonConfig = {
-    upper: { icon: "fa-arrow-up-a-z", title: "Convert to Uppercase" },
-    lower: { icon: "fa-arrow-down-a-z", title: "Convert to Lowercase" },
-    title: { icon: "fa-heading", title: "Convert to Title Case" },
-    sentence: { icon: "fa-align-left", title: "Convert to Sentence Case" },
-    reverse: { icon: "fa-arrows-rotate", title: "Reverse Text" },
-  };
-
   const isDisabled = text.length === 0;
 
+  const buttons = [
+    { type: "upper", icon: "fa-arrow-up-a-z", label: "UPPERCASE" },
+    { type: "lower", icon: "fa-arrow-down-a-z", label: "lowercase" },
+    { type: "title", icon: "fa-heading", label: "Title Case" },
+    { type: "sentence", icon: "fa-align-left", label: "Sentence case" },
+    { type: "reverse", icon: "fa-arrows-rotate", label: "esreveR" },
+  ];
+
   return (
-    <div
-      role="group"
-      aria-label="Text transformation buttons"
-      className="flex flex-wrap gap-2 my-3 justify-center"
-    >
-      {Object.entries(buttonConfig).map(([type, { icon, title }]) => (
-        <button
-          key={type}
-          onClick={() => transformText(type)}
-          disabled={isDisabled}
-          title={title}
-          className={`p-3 rounded-xl border border-gray-200 dark:border-gray-700
-          bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm
-          text-gray-800 dark:text-gray-100 shadow-sm
-          hover:shadow-md hover:scale-105 active:scale-95
-          transition-all duration-300 ease-in-out
-          disabled:opacity-50 disabled:cursor-not-allowed`}
-        >
-          <i className={`fas ${icon} text-blue-500 text-lg`} />
+    <div className="flex flex-wrap gap-2">
+      {buttons.map(({ type, icon, label }) => (
+        <button key={type} onClick={() => transformText(type)} disabled={isDisabled} title={label}
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100"
+          style={{
+            background: "var(--bg-elevated)",
+            color: "var(--text-secondary)",
+            border: "1px solid var(--border)",
+          }}
+          onMouseEnter={e => { if (!isDisabled) { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.color = "var(--accent)"; }}}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-secondary)"; }}>
+          <i className={`fas ${icon} text-xs`} />
+          <span>{label}</span>
         </button>
       ))}
     </div>

@@ -3,8 +3,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   return (
-    <div className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors">
-      <TextEditor heading="Unleash Your Creativity: Input Your Text!" />
+    <div className="min-h-screen bg-[#0f1117] text-gray-100">
+      <TextEditor heading="Text Studio" />
     </div>
   );
 }

@@ -1,62 +1,35 @@
 import React from "react";
 
-const FontSizeAndColor = ({
-  fontSize,
-  setFontSize,
-  textColor,
-  setTextColor,
-  maxLength,
-  setMaxLength,
-}) => {
+const FontSizeAndColor = ({ fontSize, setFontSize, textColor, setTextColor, maxLength, setMaxLength }) => {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4 mt-4 px-3 py-3 rounded-2xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm shadow-sm text-gray-800 dark:text-gray-100 transition-all duration-200">
-      
-      {/* Max Length */}
-      <div className="flex items-center gap-2">
-        <label htmlFor="maxLength" className="font-medium text-sm">
-          Max Characters:
-        </label>
-        <input
-          type="number"
-          id="maxLength"
-          value={maxLength}
-          onChange={(e) => setMaxLength(e.target.value)}
-          min="1"
-          className="w-24 px-3 py-1.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/60 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+    <div className="flex flex-wrap gap-6 items-center">
+      {/* Max Characters */}
+      <div className="flex flex-col gap-1.5">
+        <label className="text-xs font-medium" style={{ color: "var(--text-secondary)" }}>Max Characters</label>
+        <input type="number" value={maxLength} onChange={e => setMaxLength(e.target.value)} min="1"
+          className="w-24 px-3 py-2 rounded-xl text-sm transition-all"
+          style={{ background: "var(--bg-input)", border: "1px solid var(--border)", color: "var(--text-primary)", outline: "none", fontFamily: "'DM Mono', monospace" }}
+          onFocus={e => e.target.style.borderColor = "var(--accent)"}
+          onBlur={e => e.target.style.borderColor = "var(--border)"} />
       </div>
 
       {/* Font Size */}
-      <div className="flex items-center gap-2">
-        <label htmlFor="fontSize" className="font-medium text-sm">
-          Font Size:
-        </label>
-        <input
-          type="range"
-          id="fontSize"
-          min="10"
-          max="50"
-          value={fontSize}
-          onChange={(e) => setFontSize(e.target.value)}
-          className="w-32 accent-blue-500 cursor-pointer"
-        />
-        <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-          {fontSize}px
-        </span>
+      <div className="flex flex-col gap-1.5 flex-1 min-w-[160px]">
+        <div className="flex justify-between">
+          <label className="text-xs font-medium" style={{ color: "var(--text-secondary)" }}>Font Size</label>
+          <span className="text-xs font-mono" style={{ color: "var(--accent)" }}>{fontSize}px</span>
+        </div>
+        <input type="range" min="10" max="50" value={fontSize} onChange={e => setFontSize(e.target.value)} className="w-full" />
       </div>
 
       {/* Text Color */}
-      <div className="flex items-center gap-2">
-        <label htmlFor="textColor" className="font-medium text-sm">
-          Text Color:
-        </label>
-        <input
-          type="color"
-          id="textColor"
-          value={textColor}
-          onChange={(e) => setTextColor(e.target.value)}
-          className="w-8 h-8 rounded-full border-none shadow-md cursor-pointer transition-transform hover:scale-110"
-        />
+      <div className="flex flex-col gap-1.5 items-center">
+        <label className="text-xs font-medium" style={{ color: "var(--text-secondary)" }}>Text Color</label>
+        <div className="w-10 h-10 rounded-xl overflow-hidden border-2 transition-all hover:scale-110"
+          style={{ borderColor: "var(--border)" }}>
+          <input type="color" value={textColor} onChange={e => setTextColor(e.target.value)}
+            className="w-14 h-14 -translate-x-1 -translate-y-1" />
+        </div>
       </div>
     </div>
   );
