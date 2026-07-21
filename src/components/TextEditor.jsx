@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PenLine, Wand2, Search, Palette, Eye } from "lucide-react";
 import TextArea from "./TextArea";
 import TextStatistics from "./TextStatistics";
 import TextTransformButtons from "./TextTransformButtons";
@@ -78,26 +79,24 @@ export default function TextEditor({ heading }) {
   const handleRedo = () => { if (historyIndex < history.length - 1) { setHistoryIndex((p) => p + 1); setText(history[historyIndex + 1]); } };
 
   const sections = [
-    { id: "transform", label: "Transform", icon: "fa-wand-magic-sparkles" },
-    { id: "find", label: "Find & Replace", icon: "fa-magnifying-glass" },
-    { id: "style", label: "Style", icon: "fa-palette" },
-    { id: "preview", label: "Preview", icon: "fa-eye" },
+    { id: "transform", label: "Transform", Icon: Wand2 },
+    { id: "find", label: "Find & Replace", Icon: Search },
+    { id: "style", label: "Style", Icon: Palette },
+    { id: "preview", label: "Preview", Icon: Eye },
   ];
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--bg-base)" }}>
+    <div className="min-h-screen bg-base">
       {/* Header */}
-      <header style={{ background: "var(--bg-surface)", borderBottom: "1px solid var(--border)" }}
-        className="px-6 py-4 flex items-center justify-between sticky top-0 z-10 backdrop-blur-sm">
+      <header className="px-6 py-4 flex items-center justify-between sticky top-0 z-10 backdrop-blur-sm bg-surface border-b border-border">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-            style={{ background: "var(--accent)", boxShadow: "0 0 16px var(--accent-glow)" }}>
-            <i className="fas fa-pen text-white text-sm" />
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-accent shadow-glow">
+            <PenLine size={16} className="text-white" />
           </div>
-          <span className="font-semibold text-lg tracking-tight" style={{ color: "var(--text-primary)" }}>{heading}</span>
+          <span className="font-semibold text-lg tracking-tight text-primary">{heading}</span>
         </div>
         <div className="flex items-center gap-4">
-          <span className="text-xs font-mono px-2 py-1 rounded" style={{ background: "var(--bg-elevated)", color: "var(--text-secondary)" }}>
+          <span className="text-xs font-mono px-2 py-1 rounded bg-elevated text-secondary">
             {text.length}/{maxLength}
           </span>
           <UndoRedoDownload handleUndo={handleUndo} handleRedo={handleRedo} downloadText={downloadText} historyIndex={historyIndex} history={history} />
@@ -106,12 +105,12 @@ export default function TextEditor({ heading }) {
 
       <div className="max-w-5xl mx-auto px-4 py-6 flex flex-col gap-5">
         {/* Editor */}
-        <div style={{ background: "var(--bg-surface)", border: "1px solid var(--border)" }} className="rounded-2xl overflow-hidden">
-          <div className="px-4 py-2 flex items-center justify-between" style={{ borderBottom: "1px solid var(--border)" }}>
+        <div className="rounded-2xl overflow-hidden bg-surface border border-border">
+          <div className="px-4 py-2 flex items-center justify-between border-b border-border">
             <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full" style={{ background: "#f87171" }} />
-              <div className="w-3 h-3 rounded-full" style={{ background: "#fbbf24" }} />
-              <div className="w-3 h-3 rounded-full" style={{ background: "#34d399" }} />
+              <div className="w-3 h-3 rounded-full bg-danger" />
+              <div className="w-3 h-3 rounded-full bg-warning" />
+              <div className="w-3 h-3 rounded-full bg-success" />
             </div>
             <ClipboardAndClear text={text} copyToClipboard={copyToClipboard} clearText={clearText} clearFormatting={clearFormatting} handleRemoveExtraSpaces={handleRemoveExtraSpaces} />
           </div>
@@ -122,20 +121,20 @@ export default function TextEditor({ heading }) {
         <TextStatistics text={text} />
 
         {/* Tool Sections */}
-        <div style={{ background: "var(--bg-surface)", border: "1px solid var(--border)" }} className="rounded-2xl overflow-hidden">
+        <div className="rounded-2xl overflow-hidden bg-surface border border-border">
           {/* Tabs */}
-          <div className="flex" style={{ borderBottom: "1px solid var(--border)" }}>
+          <div className="flex border-b border-border">
             {sections.map((s) => (
               <button
                 key={s.id}
                 onClick={() => setActiveSection(s.id)}
-                className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-medium transition-all duration-200"
-                style={{
-                  color: activeSection === s.id ? "var(--accent)" : "var(--text-secondary)",
-                  background: activeSection === s.id ? "var(--bg-elevated)" : "transparent",
-                  borderBottom: activeSection === s.id ? "2px solid var(--accent)" : "2px solid transparent",
-                }}>
-                <i className={`fas ${s.icon} text-xs`} />
+                className={`flex-1 flex items-center justify-center gap-2 py-3 text-sm font-medium border-b-2 cursor-pointer transition-all duration-200 ${
+                  activeSection === s.id
+                    ? "text-accent bg-elevated border-accent"
+                    : "text-secondary bg-transparent border-transparent"
+                }`}
+              >
+                <s.Icon size={14} />
                 <span className="hidden sm:inline">{s.label}</span>
               </button>
             ))}

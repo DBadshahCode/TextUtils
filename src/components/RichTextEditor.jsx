@@ -22,8 +22,8 @@ const RichTextEditor = ({ heading }) => {
   };
 
   return (
-    <div className="p-4 bg-white rounded-2xl shadow-lg max-w-3xl mx-auto mt-5">
-      <h2 className="text-xl font-bold mb-4">{heading}</h2>
+    <div className="p-4 bg-surface border border-border rounded-2xl shadow-lg max-w-3xl mx-auto mt-5">
+      <h2 className="text-xl font-bold mb-4 text-primary">{heading}</h2>
       <ErrorBoundary>
         <ReactQuill
           theme="snow"
@@ -33,9 +33,9 @@ const RichTextEditor = ({ heading }) => {
           modules={modules}
         />
       </ErrorBoundary>
-      <div className="mt-4 p-4 bg-gray-100 rounded-xl shadow-inner">
-        <h3 className="text-lg font-semibold mb-2">Preview:</h3>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div className="mt-4 p-4 bg-elevated border border-border rounded-xl shadow-inner">
+        <h3 className="text-lg font-semibold mb-2 text-primary">Preview:</h3>
+        <div className="text-primary" dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     </div>
   );

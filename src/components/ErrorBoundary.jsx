@@ -16,7 +16,7 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h2>Something went wrong in the editor.</h2>;
+      return <h2 className="text-primary text-lg font-semibold p-4">Something went wrong in the editor.</h2>;
     }
     return this.props.children;
   }
