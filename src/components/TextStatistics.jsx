@@ -24,7 +24,7 @@ const TextStatistics = ({ text }) => {
           className="flex flex-col items-center gap-1 py-3 rounded-xl bg-surface border border-border transition-all duration-200 hover:scale-105"
         >
           <stat.Icon size={14} style={{ color: stat.color }} />
-          <span className="text-lg font-semibold text-primary font-mono">{stat.value}</span>
+          <span className="text-lg font-normal text-primary font-mono">{stat.value}</span>
           <span className="text-xs text-muted">{stat.label}</span>
         </div>
       ))}
