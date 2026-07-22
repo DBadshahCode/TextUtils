@@ -1,5 +1,6 @@
 import React from "react";
 import { Undo2, Redo2, Download } from "lucide-react";
+import Tooltip from "./Tooltip";
 
 const UndoRedoDownload = ({ handleUndo, handleRedo, downloadText, historyIndex, history }) => {
   const isUndoDisabled = historyIndex <= 0;
@@ -7,14 +8,16 @@ const UndoRedoDownload = ({ handleUndo, handleRedo, downloadText, historyIndex, 
   const isDownloadDisabled = history.length === 0;
 
   const IconButton = ({ Icon, action, disabled, title }) => (
-    <button
-      onClick={action}
-      disabled={disabled}
-      title={title}
-      className="w-8 h-8 flex items-center justify-center rounded-lg bg-transparent border-none text-secondary cursor-pointer transition-all duration-200 hover:scale-110 hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100"
-    >
-      <Icon size={14} />
-    </button>
+    <Tooltip label={title}>
+      <button
+        onClick={action}
+        disabled={disabled}
+        aria-label={title}
+        className="w-8 h-8 flex items-center justify-center rounded-lg bg-transparent border-none text-secondary cursor-pointer transition-all duration-200 hover:scale-110 hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100"
+      >
+        <Icon size={14} />
+      </button>
+    </Tooltip>
   );
 
   return (

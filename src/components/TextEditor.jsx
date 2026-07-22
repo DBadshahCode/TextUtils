@@ -12,7 +12,7 @@ import Preview from "./Preview";
 export default function TextEditor({ heading }) {
   const [text, setText] = useState("");
   const [fontSize, setFontSize] = useState(16);
-  const [textColor, setTextColor] = useState("#e8eaf6");
+  const [textColor, setTextColor] = useState("#0e0e0e");
   const [replaceText, setReplaceText] = useState("");
   const [withText, setWithText] = useState("");
   const [findText, setFindText] = useState("");
@@ -67,7 +67,7 @@ export default function TextEditor({ heading }) {
 
   const copyToClipboard = () => navigator.clipboard.writeText(text);
   const clearText = () => updateText("");
-  const clearFormatting = () => { updateText(text.replace(/<\/?[^>]+(>|$)/g, "")); setFontSize(16); setTextColor("#e8eaf6"); };
+  const clearFormatting = () => { updateText(text.replace(/<\/?[^>]+(>|$)/g, "")); setFontSize(16); setTextColor("#0e0e0e"); };
   const downloadText = () => {
     const blob = new Blob([text], { type: "text/plain" });
     const link = document.createElement("a");

@@ -5,21 +5,21 @@
 @tailwind utilities;
 
 :root {
-  --bg-base: #0f1117;
-  --bg-surface: #171923;
-  --bg-elevated: #1e2130;
-  --bg-input: #13151e;
-  --border: #2a2d3e;
-  --border-focus: #6366f1;
-  --accent: #6366f1;
-  --accent-glow: rgba(99, 102, 241, 0.25);
-  --accent-2: #a78bfa;
-  --text-primary: #e8eaf6;
-  --text-secondary: #8b8fa8;
-  --text-muted: #4a4d61;
-  --success: #34d399;
-  --warning: #fbbf24;
-  --danger: #f87171;
+  --bg-base: #eef1f5;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f3f5f8;
+  --bg-input: #ffffff;
+  --border: #d6dbe3;
+  --border-focus: #0e70c0;
+  --accent: #0e70c0;
+  --accent-glow: rgba(14, 112, 192, 0.18);
+  --accent-2: #2e9df0;
+  --text-primary: #1e1e1e;
+  --text-secondary: #5b6472;
+  --text-muted: #98a1ad;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
 }
 
 * {
@@ -86,8 +86,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 mark {
-  background: rgba(251, 191, 36, 0.25);
-  color: #fbbf24;
+  background: #ffe066;
+  color: #1e1e1e;
   border-radius: 2px;
   padding: 0 2px;
 }

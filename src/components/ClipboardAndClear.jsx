@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Check, Copy, Minimize2, Eraser, Trash2 } from "lucide-react";
+import Tooltip from "./Tooltip";
 
 const ClipboardAndClear = ({ text, copyToClipboard, clearText, clearFormatting, handleRemoveExtraSpaces }) => {
   const isDisabled = text.length === 0;
@@ -21,15 +22,16 @@ const ClipboardAndClear = ({ text, copyToClipboard, clearText, clearFormatting, 
   return (
     <div className="flex items-center gap-1">
       {actions.map(({ key, Icon, action, title, colorClass }) => (
-        <button
-          key={key}
-          onClick={!isDisabled ? action : undefined}
-          title={title}
-          disabled={isDisabled}
-          className={`w-8 h-8 flex items-center justify-center rounded-lg bg-transparent border-none cursor-pointer transition-all duration-200 hover:scale-110 hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 ${colorClass}`}
-        >
-          <Icon size={14} />
-        </button>
+        <Tooltip key={key} label={title}>
+          <button
+            onClick={!isDisabled ? action : undefined}
+            aria-label={title}
+            disabled={isDisabled}
+            className={`w-8 h-8 flex items-center justify-center rounded-lg bg-transparent border-none cursor-pointer transition-all duration-200 hover:scale-110 hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 ${colorClass}`}
+          >
+            <Icon size={14} />
+          </button>
+        </Tooltip>
       ))}
     </div>
   );
